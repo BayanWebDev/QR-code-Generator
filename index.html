@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>QR Code Generator (PNG)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Tiny QR encoder -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="card">
+    <h1>QR Code Generator</h1>
+    <p class="hint">Paste your link, choose a size, click <span class="chip">Generate</span>, then <span class="chip">Save PNG</span>.</p>
+
+    <div class="row">
+      <input id="urlInput" type="url" placeholder="https://example.com/your-link" spellcheck="false" />
+      <select id="sizeSelect" title="Size (pixels)">
+        <option value="256">256 px</option>
+        <option value="320">320 px</option>
+        <option value="384">384 px</option>
+        <option value="448">448 px</option>
+        <option value="512" selected>512 px</option>
+      </select>
+      <button id="genBtn" class="btn">Generate</button>
+      <button id="clearBtn" class="btn secondary">Clear</button>
+    </div>
+
+    <div class="preview">
+      <div id="qrContainer" class="qr-wrap" aria-live="polite" aria-label="QR code preview">
+        <span class="meta">No QR yet</span>
+      </div>
+      <div>
+        <div class="row">
+          <button id="saveBtn" class="btn" disabled>Save PNG</button>
+          <div class="spacer"></div>
+        </div>
+        <div id="status" class="meta" style="margin-top:10px;"></div>
+      </div>
+    </div>
+
+    <footer>Tip: Press <strong>Enter</strong> while typing the link to generate quickly.</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
